@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="{{ url_for('add') }}" method='POST'>
+	{{ form.species.label }}: {{ form.species }}<br>
+	{{ form.name.label }}: {{ form.name }}<br>
+	{{ form.primary_type.label }}: {{ form.primary_type }}<br>
+	{{ form.secondary_type.label }}: {{ form.secondary_type }}<br>
+	{{ form.power.label }}: {{ form.power }}<br>
+	{{ form.csrf_token }}
+	<input type=submit class=button value='Register'/>
+</form>
+<a href="{{ url_for('list') }}">Back to list.</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+	{% if pokemon %}
+		<table id=pklist>
+			<tr class=fields>
+				<th>Species</th>
+				<th>Nickname</th>
+				<th>Type 1</th>
+				<th>Type 2</th>
+				<th>Combat Power</th>
+			</tr>
+		{% for p in pokemon %}
+			<tr class=pkrow>
+				<td>{{ p.species }}</td>
+				<td>{{ p.name }}</td>
+				<td>{{ p.primary_type }}</td>
+				<td>{{ p.secondary_type }}</td>
+				<td>{{ p.power }}</td>
+			</tr>
+		{% endfor %}
+		<table>
+	{% else %}
+		<p>You haven't registered any Pokemon yet!</p>
+	{% endif %}
+	<a href="{{ url_for('add') }}">Register a new Pokemon</a>
+{% endblock %}
